@@ -1,0 +1,80 @@
+spring: 
+  profiles: 
+    active:
+      - dev
+---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.veggieg.tutorials.springcloud.entity
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+spring:
+  profiles: dev
+  application:
+    name: springcloud-miscroservcie-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/cloud_01?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: meiyou
+      initial-size: 5
+      min-idle: 5
+      max-active: 5
+      max-wait: 200
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+    
+info:
+  app.name: springcloud-miscroservice-config-dept01
+  company.name: www.scorpion.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.veggieg.tutorials.springcloud.entity
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+spring:
+  profiles: test
+  application:
+    name: springcloud-miscroservcie-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/cloud_02?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: meiyou
+      initial-size: 5
+      min-idle: 5
+      max-active: 5
+      max-wait: 200
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+
+info:
+  app.name: springcloud-miscroservice-config-dept02
+  company.name: www.scorpion.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
