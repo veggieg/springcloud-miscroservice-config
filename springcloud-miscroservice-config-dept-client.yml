@@ -19,7 +19,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/cloud_01?useUnicode=true&characterEncoding=utf8&useSSL=false
+      url: jdbc:mysql://localhost:3306/cloud_03?useUnicode=true&characterEncoding=utf8&useSSL=false
       username: root
       password: meiyou
       initial-size: 5
